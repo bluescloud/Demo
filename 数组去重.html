@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		var arr = [1, 3, 5, 3, 6, 9, 1, 2, 2]
+//		var arr = ['a', 'b', 'a', 'c', 'c', 'ab', 'bc']
+//	Join（sepretor）方法是用指定的字符把数组分割，并全部返回为字符冲。
+//indexof（’searchchar’,开始的位置），如果找不到返回-1。
+
+		function removeRepeat(arr) {
+			var i, tmpArr = [];
+			for(i in arr) {
+				if(tmpArr.join(',').indexOf(arr[i]) == -1) {
+					tmpArr.push(arr[i]);
+				}
+			}
+			return tmpArr;
+			
+		}
+		var r = removeRepeat(arr);
+		
+		document.write(r);
+	</script>
+	</body>
+</html>

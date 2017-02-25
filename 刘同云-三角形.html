@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			for(var i=1;i<10;i++){
+//				for(var y=0;y<i;y++){
+//					document.write("*");
+//				}
+//				document.write("<br />");
+//			}
+			for(var i=1;i<10;i++){
+				for(var y=0;y<(9-i);y++){
+					document.write('&nbsp;');
+				}	
+				for(var z=0;z<i;z++){
+					document.write("*	");
+                }
+				document.write("<br />");
+			}
+			document.write('<br />');
+			for(var i=1;i<10;i++){
+				for(var y=1;y<i;y++){
+					document.write("&nbsp;");
+				}
+				for(var z=0;z<(10-i);z++){
+					document.write('*	');
+				}
+				document.write("<br />");
+			}
+			document.write('<br />');
+			for(var i=1;i<10;i++){
+				for( var y=0;y<(9-i);y++){
+					document.write('&nbsp;');
+				}
+				for(var z=1;z<(i*2);z++){
+					document.write("*	");
+				}
+				document.write("<br />");
+			}
+			document.write("<br />");
+			for(var x=1;x<10;x++){
+				for(var y=1;y<x;y++){
+					document.write("&nbsp;");
+				}
+				for(var z=1;z<(10-x)*2;z++){
+					document.write('*  ');
+				}
+				document.write('<br />');
+			}
+		</script>
+	</body>
+</html>

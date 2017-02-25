@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0;
+        }
+        .box{
+            width:400px;
+            height:300px;
+            margin:50px auto;
+            border:1px solid #ff7788;
+            position:relative;
+        }
+        .list_p{
+            list-style:none;
+            width:2000px;
+            height:300px;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .list_p>li{
+            width:400px;
+            height:300px;
+            float:left;
+        }
+        .btn{
+            width:30px;
+            height:50px;
+            position:absolute;
+            top:50%;
+            margin-top:-25px;
+            background:rgba(0,0,0,0.3);
+            text-align:center;
+            line-height:50px;
+        }
+        .btn:hover{
+            color:#fff;
+            font-size:20px;
+        }
+        .btn1{
+            left:0;
+        }
+        .btn2{
+            right:0;
+        }
+    </style>
+    <script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script >
+        $(function(){
+            $l = $('.list_p>li').size();
+            $w = $('.list_p>li').eq(0).width();
+            $('.btn2').click(function(){
+                $('.list_p').animate({'left':-$w},1000,function(){
+                    $('.list_p>li').eq(0).appendTo('.list_p');
+                    $('.list_p').css('left',0);
+                })
+            })
+            $('.btn1').click(function(){
+                $('.list_p>li').eq($l-1).prependTo('.list_p');
+                $('.list_p').css('left',-$w);
+                $('.list_p').animate({'left':0},600);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul class="list_p">
+        <li style="background:#f00">1</li>
+        <li style="background:#ff0">2</li>
+        <li style="background:#f0f">3</li>
+        <li style="background:#00f">4</li>
+        <li style="background:#0ff">5</li>
+    </ul>
+    <div class="btn btn1">&lt;</div>
+    <div class="btn btn2">&gt;</div>
+</div>
+</body>
+</html>

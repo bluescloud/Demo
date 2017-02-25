@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				font-size: 12px;
+			}
+			li{
+				list-style: none;
+			}
+		    .box1{
+		    	overflow: hidden;
+		    	width:949px;
+		    	height:245px;
+		    	margin:100px auto;
+		    	position: relative;
+		    }
+		    .box1 .top{
+		    	width:947px;
+		    	height:34px;
+		    	border:1px solid #DDDDDD;
+		    }
+		    .box1 .top p{
+		    	float:right;
+		    	line-height: 34px;
+		    	padding-right: 30px;
+		    }
+		    .box1 .top p .span1{
+		    	text-align: right;
+		    	padding:3px 5px 3px 3px;
+		    	border-radius: 50%;
+		    	background: #FFFFFF;
+		    	color:#5C483D;
+		    	font-weight: bold;
+		    	cursor: pointer;
+		    }
+		    .box1 .top p .span2{
+		    	color:#5C483D;
+		    	font-weight: bold;
+		    	cursor: pointer;
+		    	padding:3px 5px 3px 3px;
+		    	border-radius: 50%;
+		    	background: #FFFFFF;
+		    }
+		    .box1 .ul1{
+		    	position: absolute;
+		    	top:35px;
+		    	left: 0px;
+		    	width:2850px;
+		    	height:209px;
+		    }
+		    .box1 .ul1 li{
+		        width:315px;
+		        height:209px;
+		        float: left;
+		        border-left: 1px solid #DDDDDD;
+		        border-bottom: 1px solid #DDDDDD;
+		    }
+		    .ul1 .liLeft{
+		       width:110px;
+		       padding-top:10px;
+		       height:100%;
+		       float:left;
+		    }
+		    .ul1 .liRight{
+		    	width:205px;
+		    	float: right;
+		    }
+		    .ul1 .liRight .pTop{
+		    	line-height: 15px;
+		    	margin-top:10px;
+		    }
+		    .ul1 .liRight .pTop a{
+		    	color:#5C483D;
+		    }
+		    .ul1 .liRight .price{
+		    	line-height: 30px;
+		    	color:#C53F4C;
+		    	
+		    }
+		    .ul1 .liRight .price span{
+		    	font-size: 18px;
+		    	font-weight: bold;
+		    }
+		    .ul1 .liRight .price b{
+		    	font-size: 16px;
+		    }
+		    .ul1 .liRight .middle{
+		    	display: block;
+		    	width:205px;
+		    	height:75px;
+		    	overflow: hidden;
+		    	
+		    }
+		    .ul1 .liRight .middle .header{
+		    	width:65px;
+		    	height: 100%;
+		    	float: left;
+		    	
+		    }
+		    .ul1 .liRight .middle .header i{
+		    	display: inline-block;
+		    	width:52px;
+		    	height:54px;
+		    	border-radius: 50%;
+		        background: url(img/jiuy/q1.jpg) no-repeat;
+		        background-size: 100% 100%;
+		     }
+		     .ul1 .liRight .middle .header b{
+		     	display: inline-block;
+		     	
+		     	color:#999999;
+		     	font-weight: 500;
+		     }
+		     .ul1 .liRight .middle .pj{
+		     	display: block;
+		     	position: relative;
+		     	/*float:right;*/
+		     }
+		     .ul1 .liRight .middle .pj .pfen{
+		     	display:inline-block;
+		     	width:60px;
+		     	padding-left: 6px;
+		     	height:22px;
+		     	line-height: 22px;
+		     	border-radius: 3px;
+		     	color: #fff;
+		     	background: #C19E64;
+		     	position: relative;
+		     	top:0px;
+		     	left:0px;
+		     }
+		     .ul1 .liRight .middle .pj .pfen b{
+		     	display: inline-block;
+		     	width:33px;
+		     	height:20px;
+		     	margin-left: 2px;
+		     	text-align: center;
+		     	font-weight: bolder;
+		     	background: #B58D53;
+		     }
+		     .ul1 .liRight .middle .pj a{
+		     	color:#666666;
+		     }
+		</style>
+	</head>
+	<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	  $(function(){
+	  	 $('.span1,.span2').hover(function(){
+	  	 	$(this).css('background','#C53F4C');
+	  	 	$(this).css('color','#ffffff')
+	  	 	if($index>=2){
+	  	 		$('.span2').css('background','none');
+	  	 		$('.span2').css('color','#BAB2AD')
+	  	 	}
+	  	 	if($index<=0){
+	  	 		$('.span1').css('background','none');
+	  	 		$('.span1').css('color','#BAB2AD')
+	  	 	}
+	  	 },function(){
+	  	 	$(this).css('background','#ffffff');
+	  	 	$(this).css('opacity','1');
+	  	 	$('.span1').css('color','#5C483D')
+	  	 	$('.span2').css('color','#5C483D')
+	  	 })
+	  	 var $Width=$('.box1').width();
+	  	 var $L=$('.ul1 li').size();
+	  	 var $index=0;
+	  	 var bol=true;
+	  	 function star(){
+	  	 	$('.ul1').animate({'left':-$Width*$index},600)
+	  	 	$num = $index;
+		    $('.num1').html($num+1);
+	  	 }
+	  	 $('.span2').click(function(){
+					if($index<$L/3-1){
+						$index++;
+						if($index>=2){
+							$(this).css('opacity','0.5');
+						}
+					}
+					star();
+				})
+        $('.span1').click(function(){
+        	if($index>0){
+        		$index--;
+        		if($index<=0){
+        			$(this).css('opacity','0.5');
+        		}
+        	}
+        	star();
+        })
+//
+//	  	 $('.span2').click(function(){
+//	  	 	if($index<$L/3-1){
+//	  	 		$index++;
+//	  	 		$('.num1').html($index+1);
+//              $('.ul1').animate({'left':-$Width*$index},600)	
+//	  	 	    $('.span1').css('color','#5C483D')
+//              console.log($index)
+//	  	 	} 	
+//	  	 })
+//	  	  $('.span1').click(function(){
+//	  	 	if($index>0){
+//	  	 		$index--;
+//	  	 		console.log("n1--："+$index)
+//	  	 		$('.num1').html($index+1);
+//              $('.ul1').animate({'left':$Width*-$index},600)	
+//              $('.span2').css('color','#5C483D')
+//	  	 	}
+//	  	 })
+	  })
+		
+	</script>
+	<body>
+		<div class="box1">
+			<div class="top">
+				<p><span class="span1 red">&lt;</span> <span class="num1">1</span>/3 <span class="span2">&gt;</span></p>
+			</div>
+			<ul class="ul1">
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy1.png"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy2.png"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy3.png"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy4.jpg"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy5.JPG"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy6.png"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy7.png"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy8.jpg"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">
+						<a href="javascript:void(0)"><img src="img/jiuy/jy9.jpg"/></a>
+					</div>
+					<div class="liRight">
+						<p class='pTop'><a href="javascript:void(0)">桃乐丝特选公牛血干红葡萄酒</a></p>
+						<p class='price'>￥<span>148</span><b>.0</b></p>
+						<div class="middle">
+							<div class="header">
+								<i></i><b>137****30</b>
+							</div>
+							<div class='pj'>
+								<p class="pfen">评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+						<div class="middle">
+							<div class="header">
+								<i style="background: url(img/jiuy/head.jpg) no-repeat; background-size: 100% 100%;"></i><b>137****33</b>
+							</div>
+							<div class='pj'>
+								<p class='pfen'>评分<b>4.0</b></p>
+								<p><a href="javascript:void(0)">超赞的好酒，有活动一定买。酒体厚重香气浓郁，非常喜欢。</a></p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//	// 工廠函數     函數外定義一個對象的方法；
+			//		function createCar(sColor, iDoors, iMpg) {
+			//			var oTempCar = new Object;
+			//			oTempCar.color = sColor;
+			//			oTempCar.doors = iDoors;
+			//			oTempCar.mpg = iMpg;
+			//			oTempCar.show = showColor;
+			//			return oTempCar;
+			//		}
+			//	
+			//		var oCar1 = createCar("red", 4, 23);
+			//		var oCar2 = createCar("blue", 3, 25);
+			//		function showColor() {
+			//			alert(this.color);
+			//		}
+			//		oCar1.show(); //输出 "red"
+			//		oCar2.show();
+			
+			
+			
+			//		//構造函數；创建构造函数就像创建工厂函数一样容易。第一步选择类名，即构造函数的名字。
+			////		根据惯例，这个名字的首字母大写，以使它与首字母通常是小写的变量名分开。
+			//		function Car(sColor,iDoors,iMpg) {
+			//		  this.color = sColor;
+			//		  this.doors = iDoors;
+			//		  this.mpg = iMpg;
+			//		  this.showColor = function() {
+			//		    alert(this.color);
+			//		  };
+			//		}
+			//		
+			//		var oCar1 = new Car("red",4,23);
+			//		var oCar2 = new Car("blue",3,25);
+			//		alert(oCar1.color);
+			//		//原型方式   
+			//		function Car(){
+			//			
+			//		}
+			//		Car.prototype.color="blue";
+			//		Car.prototype.doors=4;
+			//		Car.prototype.mpg=25;
+			//		Car.prototype.showCo=function(){
+			//			alert(this.color);
+			//		};
+			//		var oCar1=new Car();
+			//		var oCar2=new Car();
+			//		alert(oCar1.doors);
+			//		function Car() {
+			//}
+			//
+			//Car.prototype.color = "blue";
+			//Car.prototype.doors = 4;
+			//Car.prototype.mpg = 25;
+			//Car.prototype.drivers = new Array("Mike","John");
+			//Car.prototype.showColor = function() {
+			//alert(this.color);
+			//};
+			//
+			//var oCar1 = new Car();
+			//var oCar2 = new Car();
+			//
+			//oCar1.drivers.push("Bill");
+			//oCar1.doors=2;
+			//alert(oCar1.doors);
+			//alert(oCar2.doors);
+			//oCar1.showColor();
+			//alert(oCar1.drivers);	//输出 "Mike,John,Bill"
+			//alert(oCar2.drivers);	//输出 "Mike,John,Bill"
+			//
+			//
+			//構造函數加原型的對象；
+			//function Car(sColor,iDoors,iMpg) {
+			//this.color = sColor;
+			//this.doors = iDoors;
+			//this.mpg = iMpg;
+			//this.drivers = new Array("Mike","John");
+			//}
+			//
+			//Car.prototype.showColor = function() {
+			//alert(this.color);
+			//};
+			//
+			//var oCar1 = new Car("red",4,23);
+			//var oCar2 = new Car("blue",3,25);
+			//
+			//oCar1.drivers.push("Bill");
+			//
+			//alert(oCar1.drivers);	//输出 "Mike,John,Bill"
+			//alert(oCar2.drivers);	//输出 "Mike,John"
+
+			function StringBuffer() {
+				this._strings_ = new Array();
+			}
+
+			StringBuffer.prototype.append = function(str) {
+				this._strings_.push(str);
+			};
+
+			StringBuffer.prototype.toString = function() {
+				return this._strings_.join("");
+			};
+			var buffer = new StringBuffer();
+			buffer.append("hello ");
+			buffer.append("world");
+			var result = buffer.toString();
+
+			var d1 = new Date();
+			var str = "";
+			for(var i = 0; i < 5000; i++) {
+				str += "text";
+			}
+			var d2 = new Date();
+
+			document.write("Concatenation with plus: " +
+				(d2.getTime() - d1.getTime()) + " milliseconds");
+
+			var buffer = new StringBuffer();
+			d11 = new Date();
+			for(var i = 0; i < 5000; i++) {
+				buffer.append("text");
+			}
+			var result = buffer.toString();
+			d22 = new Date();
+
+			document.write("<br />Concatenation with StringBuffer: " +
+				(d22.getTime() - d11.getTime()) + " milliseconds");
+
+			<
+			script type = "text/javascript" >
+
+				var boo = new Boolean(true)
+			document.write(boo.toString())
+		</script>
+		</script>
+	</body>
+
+</html>

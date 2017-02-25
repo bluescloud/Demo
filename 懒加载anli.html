@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--Lazy Load 依赖于 jQuery. 所以要放在jQuery后面！-->
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			 $(function() {
+//				 距离屏幕200像素时提前加载；
+//				 		$("img.lazy").lazyload({threshold:200});
+//				 淡入的效果；
+    			  $("img.lazy").lazyload({effect:'fadeIn'});
+//				 点击图片才出现的效果；
+			 			$("img.lazy").lazyload({event:'click'});
+
+
+//				 用这个方法统一给img图片加入这个类名；
+//				 $('img').addClass('lazy');
+
+			 });
+
+
+		</script>
+	</head>
+	<body>
+	<!--为图片加入样式lazy  图片路径引用方法用data-original-->
+	<!--TIPS:这里必须设置图片的width和height,否则插件可能无法正常工作。-->
+		<div style="width:100%;height:800px;border:1px solid #ddd" ></div>
+		<img style="border: 1px solid #CCCCCC;" class="lazy" height="200" width="300" data-original='img/img1.jpg' />
+
+	</body>
+</html>

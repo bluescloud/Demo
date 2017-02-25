@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#" method="post" id="lin">
+			<input type="text" placeholder="请输入您的账户名！" required name="uname" /> <br /><!--默认输入框中的内容-->
+			<!--<label for="em"></label><input type="email" id="em" required autocomplete="on" multiple name="uE"/>
+			<input type="text" autofocus maxlength="6" name="uT"/>  <!--自动获取焦点--> 
+			<!--<label for="phone">手机号：</label><input type="tel" id="phone" minlength="11" maxlenght="11" pattern="^1[3|5|7|8]\d{9}$"/>-->
+			<input type="submit" value="提交" />
+		</form>
+		
+		
+		<input type="number" name="uN" form="lin"/> <!--当输入框不在保单内，form属性用来关联表单；-->
+		
+	</body>
+	<script type="text/javascript">
+		var uName=document.querySelector('[type="text"]');
+		
+		var uSubmit=document.querySelector('[type="submit"]')
+		uSubmit.onclick=function(){
+			if(uName.validity.valueMissing){
+				uName.setCustomValidity('您输入的用户名不正确请重新输入！');
+			}
+		}
+	</script>
+</html>

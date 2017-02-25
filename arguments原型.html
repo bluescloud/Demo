@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。
+			function doAdd(str){
+				if(arguments[0]=="hi"){
+					return;
+				}
+
+				alert(arguments[0]);
+			}
+			doAdd("hi");
+
+			function howManyArgs(){
+				alert(arguments.length);// arguments.length返回的是参数的长度
+			}
+			howManyArgs(10,20);
+			howManyArgs('e');
+			howManyArgs("ww",11);
+//			
+//			
+//			var js=prompt('请输入js代码');//  消息对话框，确认之后会拿到这个值；
+//			eval(js);                  //填写js代码并且输出；
+			
+//			var str=prompt("请输入日期：");  //配合switch语句使用
+//			switch (str){
+//				case '1': document.write("星期一");
+//					break;
+//				case '2': document.write("星期二");
+//					break;
+//				case '3': document.write("星期三");
+//					break;
+//				
+//				default:
+//					break;
+//			}
+
+		</script>
+	</body>
+</html>

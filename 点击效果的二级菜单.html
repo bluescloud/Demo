@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin:0px;
+			}
+			li{
+				list-style: none;
+			}
+			.box{
+				height: 350px;
+				width: 500px;
+				border:1px solid #ddd;
+				margin:50px 100px;
+				position:relative;
+			}
+			.box div{
+				width: 170px;
+				height: 50px;
+				background: #3ef;
+				padding-left:30px;
+				line-height: 50px;
+			}
+			.ul1{
+				position:absolute;
+				top:50px;
+				left:0px;
+				display: none;
+			}
+			.ul1>li{
+				width:200px;
+				height: 50px;
+				background:#ff0;
+				color:#000;
+				border-bottom:1px solid #fff;
+			}
+			.ul1>li:last-child{
+				border-bottom:none;
+			}
+			.ul2>li{
+				position:absolute;
+				top:50px;
+				left:200px;
+				background:#ddf;
+				width:300px;
+				height:255px;
+				display:none;
+			}
+		</style>
+		<script src="../10.26/js/js.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var obox1=document.getElementsByClassName('box1')[0];
+				var oul1=document.getElementsByClassName("ul1")[0];
+				var oli1=oul1.getElementsByTagName('li');
+				var oul2=document.getElementsByClassName("ul2")[0];
+				var oli2=oul2.getElementsByTagName('li');
+				obox1.onclick=function(e){
+					var e=e||event;
+					if(e.stopPropagation){
+						e.stopPropagation();
+					}else{
+						e.cancelBubble=true;
+					}
+					oul1.onclick=function(e){      //阻止冒泡 当点击 oul1时 不会被穿透，到body，这里注意阻止事件要写在父元素上；
+						if(e.stopPropagation){
+							e.stopPropagation();
+						}else{
+							e.canceBubble=true;
+						}
+					}
+					oul2.onclick=function(e){
+						if(e.stopPropagation){
+							e.stopPropagation();
+						}else{
+							e.canceBubble=true;
+						}
+						
+					}
+					if(oul1.style.display=="block"){
+						oul1.style.display="none";
+					}else{
+						oul1.style.display="block";
+					}
+					for(var i=0;i<oli1.length;i++){
+						oli1[i].index=i;
+						oli2[i].index=i;
+						oli1[i].onmouseover=function(){
+							oli2[this.index].style.display="block";
+						}
+						oli1[i].onmouseout=function(){
+							oli2[this.index].style.display="none";
+						}
+						oli2[i].onmouseover=function(){
+							oli2[this.index].style.display="block";
+						}
+						oli2[i].onmouseout=function(){
+							oli2[this.index].style.display="none";
+						}
+					}
+				}
+				document.body.onclick=function(){
+					oul1.style.display="none";
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">全部商品</div>
+			<ul class="ul1">
+				<li>11</li>
+				<li>22</li>
+				<li>33</li>
+				<li>44</li>
+				<li>55</li>
+			</ul>
+			<ul class="ul2">
+				<li>11</li>
+				<li>22</li>
+				<li>33</li>
+				<li>44</li>
+				<li>55</li>
+			</ul>
+		</div>
+	</body>
+</html>

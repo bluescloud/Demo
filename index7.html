@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration:none;
+			}
+			div{
+				height: 30px;
+				/*text-align: center;*/
+				padding-left: 30px;
+				line-height: 30px;
+				background: #999;
+				color:#fff;
+				font-size: 16px;
+				font-family:"1"微软雅黑";
+				position:relative;
+			}
+			ul{
+				width:120px;
+				border:1px solid #ddd;
+				position:absolute;
+				top:30px;
+				left:0px;
+				display:none;
+			}
+			ul li{
+				width:120px;
+				height: 30px;
+				border-bottom: 1px solid #ddd;
+				background: #fff;
+				line-height: 30px;
+				text-align: center;
+			}
+			ul li:last-child{
+				border-bottom: none;
+			}
+		</style>
+		<script src="../11-18/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+			$(document).ready(function(){
+				$('div').hover(function(){
+					$('ul').stop().slideDown(600);
+				},function(){
+					$('ul').stop().slideUp(600);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div>
+			下拉菜单
+			<ul>
+				<li><a href="#">个人账户</a></li>
+				<li><a href="#">购物车</a></li>
+				<li><a href="#">客户服务</a></li>
+				<li><a href="#">客户投诉</a></li>
+				<li><a href="#">联系客服</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

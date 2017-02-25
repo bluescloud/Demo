@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div>img{
+				width:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<p id="p1"></p>-->
+		<div>
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+			<span>时</span>
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+			<span>分</span>
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+			<span>秒</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var op=document.getElementById('p1');
+//		setInterval(function(){
+//			var dat=new Date(2016,10,11);
+//			var dat1=new Date();
+//			var num=(dat-dat1)/1000;
+//			var d = parseInt(num/3600/24);
+//			var h = parseInt(num/3600%24);
+//			var m = parseInt(num/60%60);
+//			var s=parseInt(num%60);
+//			if(s<10){
+//				s='0'+s;
+//			}
+//			if(m<10){
+//				m='0'+m;
+//			}
+//			op.innerHTML='距离双十一还有:'+d+'天'+h+'小时'+m+'分'+s+'秒';	
+//		},1000);
+		function imgs(){
+			var dat=new Date();
+			var h=dat.getHours();
+			var m=dat.getMinutes();
+			var s=dat.getSeconds();
+			var oimg=document.getElementsByTagName('img');
+			oimg[0].src='img/'+parseInt(h/10)+'.png';
+			oimg[1].src='img/'+(h%10)+".png";
+			oimg[2].src='img/'+parseInt(m/10)+'.png';
+			oimg[3].src='img/'+(m%10)+'.png';
+			oimg[4].src='img/'+parseInt(s/10)+'.png';
+			oimg[5].src='img/'+s%10+'.png';
+		}
+		setInterval(imgs,1000)
+	</script>
+</html>

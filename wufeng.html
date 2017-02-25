@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			#box{
+				width:200px;
+				height:100px;
+				margin:20px auto;
+				border:1px solid #000000;
+				overflow: hidden;
+				position: relative;
+			}
+			#ul1{
+				width:1200px;
+				height:100px;
+				position: relative;
+			}
+			#ul1 li{
+				width:200px;
+				height:100px;
+				float: left;
+			}
+			#ul2{
+				width:100px;
+				height:15px;
+				position: absolute;
+				top:80px;
+				left:50px;
+				border:1px solid #fff;
+				border-radius:7px;
+			}
+			#ul2 li{
+				width:15px;
+				height:15px;
+				border-radius:50%;
+				background:violet;
+				float:left;
+				margin-left:3px;
+				color:#fff;
+				font-size:12px;
+				text-align: center;
+				line-height: 15px;
+				cursor: pointer;
+			}
+			
+			#lt{
+				width:15px;
+				height:30px;
+				background:red;
+				opacity:0.6;
+				text-align: center;
+				line-height: 30px;
+				position: absolute;
+				top:30px;
+				left:0px;
+				border:1px solid #000000;
+				cursor:pointer;
+				/*display:none;*/
+			}
+			#gt{
+				width:15px;
+				height:30px;
+				background:red;
+				opacity:0.6;
+				text-align: center;
+				line-height: 30px;
+				position: absolute;
+				top:30px;
+				right:0px;
+				border:1px solid #000000;
+				cursor:pointer;
+				/*display:none;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id='ul1'>
+				<li style="background: red;">111</li>
+				<li style="background: green;">222</li>
+				<li style="background: yellow;">333</li>
+				<li style="background: blue;">444</li>
+				<li style="background: blueviolet;">555</li>
+				<li style="background: red;">666</li>
+			</ul>
+			<ul id='ul2'>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<div id='lt'>&lt;</div>
+			<div id='gt'>&gt;</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$wid=-$('#box').width();
+		$num=$('#ul1 li').size();
+		$index=0;
+		$s=0;
+		function star(){
+			$('#ul1').animate({'left':$wid*$index});
+		}
+		function move(){
+			if ($index>=$num-1) {
+				$('#ul1').css('left','0');
+				$index=0;
+			}
+			$index++;
+			$s=$index;
+			star();
+			if ($s>=$num-1) {
+				$s=0;
+			}
+			$('#ul2 li').eq($s).css('background','#fff').siblings().css('background','pink');
+		}
+		timer=setInterval(move,2000);
+		$('#ul2 li').each(function(i){
+			$(this).click(function(){
+				clearInterval(timer);
+				$index=i;
+				$(this).css('background','#fff').siblings().css('background','pink');
+				star();
+				timer=setInterval(move,5000);
+			})
+		})
+		
+		$('#lt').click(function(){
+			clearInterval(timer);
+			if ($index<=0) {
+				$index=$num-1;
+				$('#ul1').css('left','-1200px')
+			}
+			$index--;
+			star();
+			$('#ul2 li').eq($index).css('background','#fff').siblings().css('background','pink');
+			timer=setInterval(move,2000);
+		})
+		$('#gt').click(function(){
+			clearInterval(timer);
+			if ($index>=$num-1) {
+				$index=0;
+				$('#ul1').css('left','0px')
+			}
+			$index++;
+			$s=$index;
+			star();
+			if ($s>=$num-1) {
+				$s=0;
+			}
+			$('#ul2 li').eq($s).css('background','#fff').siblings().css('background','pink');
+			
+			timer=setInterval(move,2000);
+		})
+		
+	</script>
+</html>

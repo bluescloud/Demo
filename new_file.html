@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+		<!--<script src="../11-17/js/Js.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="txt"></div>
+		<div style="width: 100px;" class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+		<div class="box">4</div>
+	</body>
+	<!--<script type="text/javascript">
+		function startTime(){
+			var tim=new Date();
+			var h=tim.getDate();
+			var m=tim.getMinutes();
+			var s=tim.getSeconds();
+			m=checkTime(m);
+			s=checkTime(s);
+			document.getElementById("txt").innerHTML=h+":"+m+":"+s;
+			t=setTimeout('startTime',500);
+		}
+		function checkTime(i){
+			if(i<10){
+				i="0"+i;
+				return i;
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var ti=new Date();
+		console.log(ti);
+		var ti1=ti.getTime();
+		var ti2=ti.getTime()+24*60*60*1000;
+		var ti3=24*60*60*1000*365;
+		var y=ti1/ti3;
+		console.log(y);
+		console.log(ti1);
+		console.log(ti2);
+	</script>-->
+	<script type="text/javascript">
+//		var arr=new Array(6);
+//		arr[0]="li";
+//		arr[1]="l2";
+//		arr[2]="l3";
+//		arr[3]="l4";
+//		arr[4]="l5";
+//		arr[5]="l6";
+//		document.write(arr+"<br />");
+////		arr.splice(2,0,"jack");
+////		document.write(arr.slice(3,4));
+////		document.write(arr+"<br />");
+//		var arr1=arr.unshift("jack");
+//		document.write(arr1+"<br />");
+//		document.write(arr);
+//		$(this).hide();
+//		$("p").hide();
+//		$(".test").hide();
+//		$(#test).hide();
+//		$(this)
+//		$("p");
+//		$("p.intro");
+//		$(".intro");
+//		$("#intro");
+//		$("ul li:first");
+//		$("[href$='.jpg']");
+//		$("div#intro.head");
+		var $Box=$(".box");
+		var box=$Box.get(0);
+		alert(box);
+	</script>
+</html>

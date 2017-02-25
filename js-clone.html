@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--实例讲述了JS克隆，属性，数组，对象，函数-->
+<script type="text/javascript">
+    /* 克隆原型得到对象 */
+    function clone(object) {
+        function F() {}
+        F.prototype = object;
+        return new F;
+    }
+    var Person = {
+        name: 'default name',
+        getName: function() {
+            return this.name;
+        }
+    };
+    var reader = clone(Person);
+    console.log(reader.getName()); // This will output 'default name'.
+    reader.name = 'John Smith';
+    console.log(reader.getName()); // This will now output 'John Smith'.
+    /* Author Prototype Object. */
+    var Author = clone(Person);
+    Author.books = []; // 书数组
+    Author.getBooks = function() {
+        return this.books;
+    }
+    var author = [];
+    author[0] = clone(Author);
+    author[0].name = 'Dustin Diaz';
+    author[0].books = ['JavaScript Design Patterns'];
+    author[1] = clone(Author);
+    author[1].name = 'Ross Harmes';
+    author[1].books = ['JavaScript Design Patterns','PHP','Mysql'];
+    console.log(author[0].getName());
+    console.log(author[0].getBooks());
+    console.log(author[1].getName());
+    console.log(author[1].getBooks());
+</script>
+
+<script type="text/javascript">
+    /* 克隆原型得到对象 */
+    function clone(object) {
+        function F() {}
+        F.prototype = object;
+        return new F;
+    }
+
+    var Person = {
+        name: 'default name',
+        getName: function() {
+            return this.name;
+        }
+    };
+    var Author = clone(Person);
+    Author.books = []; // 书数组
+    Author.getBooks = function() {
+        return this.books;
+    }
+    var authorClone = clone(Author);
+    console.log(authorClone.name); // string 'default name'.
+    authorClone.name = 'new name'; // 重新赋值
+    console.log(authorClone.name); // Now linked to the primative authorClone.name, which
+    // is the string 'new name'.
+    console.log(Author.getName()); // 没有改变，任然是 'default name'
+    console.log(Author.getBooks()); // 空的
+    authorClone.books.push('new book'); // Author被改了
+    authorClone.books.push('new new book'); // Author被改了
+    console.log(Author.getBooks()); // array 'new book'
+    console.log(authorClone.getBooks()); // array 'new book'  原来的对象也会改变；
+    authorClone.books = []; // 定义了属于自己的books数组
+
+    authorClone.books.push('new book2'); // We are now modifying that new array.
+    authorClone.books.push('new book3');
+    authorClone.books.push('new book4');
+    console.log(authorClone.getBooks());
+    console.log(Author.getBooks());
+    var CompoundObject = {
+        string1: 'default value',
+        childObject: {
+            bool: true,
+            num: 10
+        },
+        getChild: function() { // 返回对象Object
+            return this.childObject;
+        }
+
+    }
+    var compoundObjectClone = clone(CompoundObject);
+    compoundObjectClone.childObject.num = 5; // 不好的方式
+    compoundObjectClone.childObject = { // 好一点的方式
+        bool: true,
+        num: 5
+    };
+    console.log(compoundObjectClone.getChild());
+    var str={
+        num:1,
+        name:"joe",
+        ochild:{
+            age:12,
+            hide:130,
+        },
+        getChild:function(){
+            return this.ochild;
+        },
+    }
+    var strClone=clone(str);
+    strClone.ochild={
+        age:20,
+        hide:180,
+    }
+    console.log(strClone.getChild);
+</script>
+</body>
+</html>

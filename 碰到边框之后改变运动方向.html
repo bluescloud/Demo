@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height:100%;
+				position:relative;
+			}
+			#box{
+				width:100px;
+				height:100px;
+				background:#DDFFDD;
+				position:absolute;
+				top:0px;
+				left:0px;
+			}
+		</style>
+		<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$x=0;
+				$y=0;
+				$bol=true;
+				$bol1=true;
+				$w=$('#box').width();
+				$bw=$('body').width();
+				$h=$('#box').height();
+				$bh=$('body').height();
+				setInterval(function(){
+					if($bol){
+						$x++;
+					}else{
+						$x--;
+					}
+					if($bol1){
+						$y++;
+					}else{
+						$y--;
+					}
+					if($x>=($bw-$w)){
+						$bol=false;
+					}else if($x<=0){
+						$bol=true;
+					}
+					if($y>=($bh-$h)){
+						$bol1=false;
+					}else if($y<=0){
+						$bol1=true;
+					}
+					$('#box').css('left',$x);
+					$('#box').css('top',$y);
+				},10);
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width:200px;
+				height:200px;
+				border:1px solid #ddd;
+				background:rga(255,255,255);
+			}
+		</style>
+		<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+//				var oBox=document.querySelector('#box');
+//				var change=document.getElementsByClassName("change");
+//				for(var i=0;i<change.length;i++){
+//					change[i].onchange=function(){
+//						oBox.style.background="rgb("+change[0].value+","+change[1].value+","+change[2].value+")";
+//					}
+//				}
+			
+			
+				$('ul>li').each(function(i){
+					$('ul>li').click(function(){
+						console.log($(this).text());
+					});
+				
+				});
+			
+				
+
+				
+		
+		
+//			function move(){
+//		    	
+//		    	$n=$('meter');
+//		    	$w=$n.val();
+//		    	$w+=5;
+//		    	if($w>=100){
+//		    		clearInterval(move);
+//		    	}
+//		    	$n.val($w);
+//		    }
+//			setInterval(move,200);
+//			
+			$('.change').each(function(i){
+				$r = $('.change').eq(0).val();
+				$g = $('.change').eq(1).val();
+				$b = $('.change').eq(2).val();
+				$(this).change(function(){
+//					console.log(i)
+					$('#box').css('background',"rgb("+$('.change').eq(0).val()+","+$('.change').eq(1).val()+","+$('.change').eq(2).val()+")");
+//					$('#box').css('background','rgb('+$r+','+$g+','+$b+')');
+//					console.log($g);
+//					console.log($b);
+				});
+			})
+			
+//			$r = 0;
+//			$g = 0;
+//			$b = 0;
+//			$('.change1').mousedown(function(){
+//				$(this).mousemove(function(){
+//					$r = $(this).val();
+//					$('#box').css('background','rgb('+$r+','+$g+','+$b+')');
+//				})
+//			})
+//			$('.change2').mousedown(function(){
+//				$(this).mousemove(function(){
+//					$g = $(this).val();
+//					$('#box').css('background','rgb('+$r+','+$g+','+$b+')');
+//				})
+//			})
+//			$('.change3').mousedown(function(){
+//				$(this).mousemove(function(){
+//					$b = $(this).val();
+//					$('#box').css('background','rgb('+$r+','+$g+','+$b+')');
+//				})
+//			})
+			
+
+
+
+			
+			
+			
+			});
+			
+			
+				
+			
+			
+		</script>
+	</head>
+	<body>
+		<form action="_top" method="get">
+			<!--<label for="uTel">号码：</label><input type="tel" required="required" pattern="1[3578]\d{9}" id="uTel"/><br />
+			<label for="uDate">日期：</label><input type="date" name="uDate" id="uDate" value=""/><br />
+			<label for="m">月份:</label><input type="month" name="m" value="" id="m"/><br />
+			<label for="w">周:</label><input type="week" name="w" value=" " id="w" /><br />
+			<label for="color">颜色:</label><input type="color" name="col" value="" id="color"/>
+			<label for="uSearch">搜索</label><input type="search" required="required" id="uSearch" />
+			<label for="uUrl">请输入您要查询的网址：</label><input type="url" required="required" id="uUrl" />-->
+			<!--<label for="num">数字</label><input type="number" required="required" id="num" min="0" max="120" />
+			<input type="file" />
+			<input type="text" name="li" list="li"/>
+			<datalist id="li">
+				<option value="歌手"></option>
+				<option value="乐手"></option>
+				<option value="吉他手"></option>
+				<option value="鼓手"></option>
+				<option value="贝斯手"></option>
+			</datalist>
+			<input type="range" min="0" max="100" step="5" />
+			<progress min="0" max="100" value="20"></progress>-->
+			
+			<!--<meter id="met" min="0" max="100" low="30" high="70" optimum="50" value="10"></meter>-->
+			
+			
+			
+			<div id="box"></div>
+			<label for="">r:</label><input type="range" class="change" name="range" value="" min="0" max="255" step="5"/>
+			<label for="">g:</label><input type="range" class="change" name="range" value="" min="0" max="255" step="5"/>
+			<label for="">b:</label><input type="range" class="change" name="range" value="" min="0" max="255" step="5"/>
+			
+			
+			<!--<button>1</button>
+			<button>2</button>
+			<button>3</button>-->
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+		<ul>
+			<li>吉列</li>
+			<li>长城</li>
+			<li>沃尔沃</li>
+			<li>法拉利</li>
+			<li>幻影</li>
+		</ul>
+		<btton id="butt">点击显示</btton>
+	</body>
+</html>

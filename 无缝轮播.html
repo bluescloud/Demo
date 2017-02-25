@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding:0px;
+				margin:0px;
+			}
+			li{
+				list-style: none;
+			}
+			.box{
+				border:1px solid #ddd;
+				width:400px;
+				height:300px;
+				/*overflow: hidden;*/
+				margin:50px auto;
+				position:relative;
+			}
+			.box:hover .lt{
+				display:block;
+			}
+			.box:hover .rt{
+				display:block;
+			}
+			.banner{
+				width:2400px;
+				position:absolute;
+				top:0px;
+				left:0px;
+			}
+			.banner>li{
+				float:left;
+				width:400px;
+				height:300px;
+				background:#019135;
+				color:#fff;
+				font-size:50px;
+				text-align: center;
+				line-height: 300px;
+			}
+			
+			.banner-list{
+				width:200px;
+				position:absolute;
+				top:80%;
+				left:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+			}
+			.banner-list>li{
+				float:left;
+				width:30px;
+				height:30px;
+				border-radius:50%;
+				background:#ff0;
+				text-align: center;
+				line-height: 30px;
+				margin:5px;
+				cursor:pointer;
+			}
+			
+			.lt{
+				background:#DDDDDD;
+				width:30px;
+				height:40px;
+				text-align: center;
+				line-height: 40px;
+				font-size:30px;
+				color:#fff;
+				font-weight:bold;
+				position:absolute;
+				top:50%;
+				left:0px;
+				margin-top:-20px;
+				border-radius:0px 2px 2px 0px;
+				display:none;
+			}
+			.rt{
+				background:#DDDDDD;
+				width:30px;
+				height:40px;
+				text-align: center;
+				line-height: 40px;
+				font-size:30px;
+				color:#fff;
+				font-weight:bold;
+				position:absolute;
+				top:50%;
+				right:0px;
+				margin-top:-20px;
+				border-radius:2px 0px 0px 2px;
+				display:none;
+			}
+			.lt:hover{
+				background:#555555;
+			}
+			.rt:hover{
+				background:#555555;
+			}
+		</style>
+		<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$n=0;
+				$lo=$('.banner li').size();
+				$w=-$('.box').width();
+
+				var timer=null;
+				function move(){
+					$('.banner').stop().animate({'left':$w*$n},600);
+				}
+
+				function roll(){
+					if($n>=$lo-1){
+						$('.banner').css('left','0px');
+						$n=0;
+					}
+					$n++;
+					//到最后一个下标值的时候给他的值赋成0；来实现指示的背景
+					$num=$n;
+					if($num>=$lo-1){
+						$num=0;
+					}
+					$('.banner-list>li').eq($num).css('background','#fff').siblings().css('background','#ff0');
+					move();
+				}
+
+				timer=setInterval(roll,3000);
+				$('.banner-list>li').hover(function(){
+					clearInterval(timer);
+					$n=$(this).index()-1;
+					roll();
+				},function(){
+					timer=setInterval(roll,3000);
+				})
+				$('.lt').click(function(){
+					clearInterval(timer);
+					if($n<=0){
+						$n=$lo-1;
+						$('.banner').css('left','-2000px');
+					}
+					$n--;
+					move();
+					$('.banner-list>li').eq($n).css('background','#fff').siblings().css('background','#ff0');
+					timer=setInterval(roll,3000);
+				})
+
+				$('.rt').click(function(){
+					clearInterval(timer);
+					roll();
+					timer=setInterval(roll,3000);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="banner">
+				<li style="background:#FFDDFF">111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+				<li>555</li>
+				<li style="background:#FFDDFF">666</li>
+			</ul>
+			<ul class="banner-list">
+				<li style="background:#fff">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<div class="lt">&lt;</div>
+			<div class="rt">&gt;</div>
+		</div>
+		
+		
+	</body>
+</html>

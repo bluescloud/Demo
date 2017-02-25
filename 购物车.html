@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../11-17/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		*{
+			padding:0px;
+			margin:0px;
+		}
+		#box{
+			height:600px;
+			border-bottom:1px solid #ddd;
+		}
+		#car{
+			position:fixed;
+			top:0;
+			right:0px;
+			width:30px;
+			height:100%;
+			background:#ff0;
+			color:#f00;
+			font-size:20px;
+			text-align: center;
+			
+		}
+		#ip{
+			position:absolute;
+			top:50%;
+			right:0px;
+		}
+		#jiaru{
+			border:1px solid #ddd;
+			width:80px;
+			padding:5px 10px;
+			
+			background:#DDD1B6;
+			color:#ff0;
+			position:relative;
+			left:200px;
+			top:20px;
+			cursor:pointer;
+		}
+		#img{
+			margin-left:100px;
+		}
+	</style>
+	<body>
+		<div id='box'></div>
+		<div id="jiaru">加入购物车</div>
+		<div id="box1"><img id="img" src="../11-13lunbo/img/button.png" alt="" /></div>
+		<div id="box"></div>
+		<div id="car"><span id="ip">购物车</span></div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#jiaru').click(function(){
+				$img=$('#img').clone();
+				$left=$('#img').offset().left;
+				$top=$('#img').offset().top;
+				$img.css({'position':'absolute','left':$left,'top':$top});
+				$box=$('#box1');
+				$img.appendTo($box);
+				$img.animate({left:$('body').width()-$left,top:$('#ip').offset().top,width:'10',height:'10',opcity:'0.1'},3000);
+				
+			})
+		})
+	</script>
+</html>

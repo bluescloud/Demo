@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            border:1px solid #ddd;
+            width:100px;
+            height:100px;
+
+        }
+        #demo.panel:target{
+            background:#ff0;
+        }
+        p:not(.abc){
+            border:1px solid #f0f;
+        }
+    </style>
+</head>
+<body>
+//
+    <div id="demo1">
+        <a href="#demo">点击改变颜色</a>
+    </div>
+    <div id="demo" class="panel">target的用法</div>
+//:not（）伪类  匹配不含有某个选择符的元素；例如：（：last-child）
+    <p class="abc">否定伪类选择符 E:not(s)</p>
+    <p id="abc">否定伪类选择符 E:not(s)</p>
+    <p class="abcd">否定伪类选择符 E:not(s)</p>
+    <p>否定伪类选择符 E:not(s)</p>
+</body>
+</html>
